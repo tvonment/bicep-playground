@@ -1,0 +1,10 @@
+# Install Azure CLI
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+# Update Bicep
+az bicep install && az bicep upgrade
+
+az login
+az account show
+az account set --subscription MPN150
+az group create -l switzerlandnorth -n bicep-playground
+az deployment group create --template-file main.bicep --resource-group bicep-playground
